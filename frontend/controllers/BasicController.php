@@ -10,7 +10,7 @@ class BasicController extends Controller
 {
     public $ip = '0.0.0.0';
     public $session;
-    public $isBonus = FALSE;
+
 
     /**
      * Блок для формирования Ajax request
