@@ -11,6 +11,7 @@ use Yii;
  * @property int|null $user_id Ссылка на пользователя, таблицу user
  * @property int|null $count_ball_loyalty Текущее количество баллов лояльности
  * @property int|null $bonus_id Если = 0 бонус не получен, елси 1 = ссылка на таблицу user_bonus, -1 отказ от бонуса
+ * @property int|null $count_money текущее колличество денег на счете
  */
 class UserAdvance extends \yii\db\ActiveRecord
 {
@@ -28,7 +29,7 @@ class UserAdvance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'count_ball_loyalty', 'bonus_id'], 'integer'],
+            [['user_id', 'count_ball_loyalty', 'bonus_id', 'count_money'], 'integer'],
         ];
     }
 
@@ -42,6 +43,7 @@ class UserAdvance extends \yii\db\ActiveRecord
             'user_id' => 'User ID',
             'count_ball_loyalty' => 'Count Ball Loyalty',
             'bonus_id' => 'Bonus ID',
+            'count_money' => 'Count Money',
         ];
     }
 }

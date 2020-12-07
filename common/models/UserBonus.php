@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property int|null $bonus_id Ссылка на бонус
  * @property int|null $bonus_value Количество единиц бонусов
+ * @property int|null $user_id id пользователя, которому принадлежит бонус
+ * @property string|null $type тип операции add-добавить del-списать
  */
 class UserBonus extends \yii\db\ActiveRecord
 {
@@ -27,7 +29,8 @@ class UserBonus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['bonus_id', 'bonus_value'], 'integer'],
+            [['bonus_id', 'bonus_value', 'user_id'], 'integer'],
+            [['type'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,6 +43,8 @@ class UserBonus extends \yii\db\ActiveRecord
             'id' => 'ID',
             'bonus_id' => 'Bonus ID',
             'bonus_value' => 'Bonus Value',
+            'user_id' => 'User ID',
+            'type' => 'Type',
         ];
     }
 }
